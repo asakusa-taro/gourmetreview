@@ -1,0 +1,31 @@
+<h1>店舗名：<%= @shop.name %></h1>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card" style="width: 18rem;">
+      <img src="..." class="card-img-top" alt="...">
+    </div>
+    <p class="mt-3"><%= link_to '写真一覧', root_path ,class: 'btn btn-primary btn-block'%></p>
+    <p><%= link_to 'お気に入りに追加', root_path ,class: 'btn btn-info btn-block'%></p>
+  </div>
+  <div class="col-sm-8">
+    <table class="table">
+      <tr>
+        <td>詳細</td>
+        <td class="text-left"><%= @shop.content %></td>
+      </tr>
+      <tr>
+        <td>営業時間</td>
+        <td class="text-left"><%= @shop.business_hours %></td>
+      </tr>
+      <tr>
+        <td>住所</td>
+        <td class="text-left"><%= @shop.address %></td>
+      </tr>
+      <tr>
+        <td>HP</td>
+        <td class="text-left"><%= @shop.hp %></td>
+      </tr>
+    </table>
+    <p><%= link_to '口コミを投稿する', root_path ,class: 'btn btn-primary btn-block'%></p>
+  </div>
+</div>

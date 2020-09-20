@@ -1,0 +1,13 @@
+<ul class="list-unstyled">
+  <div class="d-flex flex-wrap bd-highlight mb-3 ">
+  <% shops.each do |shop| %>
+    <div class="card" style="width: 15rem;">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%= shop.name %></h5>
+        <%= link_to 'more', shop_path(shop) ,class: 'btn btn-primary btn-block'%>
+      </div>
+    </div>
+  <% end %>
+  </div>
+  <%= paginate shops %></ul>
