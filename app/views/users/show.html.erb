@@ -1,0 +1,31 @@
+    <div class="container">
+      <div class="d-flex flex-wrap justify-content-around	">
+        <div>
+          <img class="rounded-circle" src="<%= gravatar_url(@user, { size: 200 }) %>" alt="">
+          <div>
+            <p class="mt-2 text-center"><%= @user.name %></p>
+          </div>
+          <div class="mt-3">
+            <p><%= link_to 'ユーザ情報の編集', edit_user_path(@user) ,class: 'btn btn-primary btn-block'%></p>
+          </div>
+        </div>
+      <div class="card" style="width: 40rem;">
+        <div class="card-body">
+          <h5 class="card-title">Profile</h5>
+          <p class="card-text"><%= @user.profile %></p>
+        </div>
+      </div>
+    </div>
+    <h2 class="mt-4">お気に入りのお店</h2>
+ 
+ <!--お店の表示直す-->
+    <div class="container">
+      <div class="offset-md-2 col-md-8 d-flex flex-wrap justify-content-around	">
+        <div>
+          <img class="rounded-circle" src="<%= gravatar_url(@user, { size: 200 }) %>" alt="">
+          <div>
+            <p class="mt-2 text-center"><%= @user.name %></p>
+          </div>
+        </div>
+      </div>
+    </div>

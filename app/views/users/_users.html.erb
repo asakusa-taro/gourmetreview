@@ -1,0 +1,15 @@
+<% if users.any? %>
+  <div class="container">
+    <div class="offset-md-2 col-md-8 d-flex flex-wrap justify-content-around	">
+      <% users.each do |user| %>
+        <div>
+          <img class="rounded-circle" src="<%= gravatar_url(user, { size: 200 }) %>" alt="">
+          <div>
+          <p class="mt-2 text-center"><%= link_to  user.name , user_path(user) %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <%= paginate users %>
+<% end %>

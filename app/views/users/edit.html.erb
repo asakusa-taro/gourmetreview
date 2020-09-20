@@ -1,0 +1,49 @@
+<h1>Users#edit</h1>
+<p>Find me in app/views/users/edit.html.erb</p>
+
+<div class="row">
+  <div class="col-sm-4">
+    <div>
+      <img class="rounded-circle" src="<%= gravatar_url(@user, { size: 200 }) %>" alt="">
+      <div>
+        <p class="mt-2 text-center"><%= @user.name %></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-8">  
+    <%= form_with(model: @user, local: true) do |f| %>
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="form-group">
+        <%= f.label :name, '名前' %>
+        <%= f.text_field :name ,class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email, 'メールアドレス' %>
+        <%= f.text_field :email ,class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :profile, 'Profile' %>
+        <%= f.text_field :profile,class: 'form-control'%>
+      </div>
+      <div class="form-group">
+        <%= f.label :image,'プロフィール画像の変更' %>
+        <div>
+          <%= f.file_field :image %>
+        </div>
+      </div>
+      <%= f.submit '更新' ,class: 'btn btn-primary btn-block' %>
+    
+    <% end %>
+    </div>
+  </div>
+</div>
+
+
