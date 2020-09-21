@@ -7,6 +7,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # @shops = Shop.find(params[:id])
+    @fav_shops = @user.fav_shops.order(id: :desc).page(params[:page])
   end
 
   def new
@@ -40,6 +42,13 @@ class UsersController < ApplicationController
       render :edit
     end
   end
+  
+  # def likes
+  #   @user = User.find(params[:id])
+  #   @shops = Shop.find(params[:id])
+  #   @fav_shops = @user.fav_shops.order(id: :desc).page(params[:page])
+  # end
+  
   
   private
 
