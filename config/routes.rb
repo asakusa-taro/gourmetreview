@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'reviews/create'
+  get 'reviews/destroy'
   get 'favorites/create'
   get 'favorites/destroy'
   get 'shops/new'
@@ -18,7 +20,10 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :shops
+  resources :shops do
+    resources :reviews      
+  end
+  
   resources :favorites, only: [:create, :destroy]
 
 end

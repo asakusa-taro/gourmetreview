@@ -8,6 +8,8 @@ class ShopsController < ApplicationController
   
   def show
     @shop = Shop.find(params[:id])
+    @review = current_user.reviews.new
+    @reviews = @shop.reviews.order(id: :desc).page(params[:page])
   end
 
   def create

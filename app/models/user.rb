@@ -8,6 +8,9 @@ class User < ApplicationRecord
   has_many :shops
   has_many :favorites
   has_many :fav_shops, through: :favorites, source: :shop
+  
+  has_many :reviews
+  has_many :comment, through: :reviews, source: :shop
 
   def favorite(shop)
     self.favorites.find_or_create_by(shop_id: shop.id)
@@ -21,5 +24,9 @@ class User < ApplicationRecord
   def favoring?(shop)
     self.fav_shops.include?(shop)
   end
-
+  
+  # def review(shop)
+  #   self.reviews.find_or_create_by(shop_id: shop.id)
+  # end
+  
 end

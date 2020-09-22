@@ -1,15 +1,14 @@
 <% if users.any? %>
-  <div class="container">
-    <div class="offset-md-2 col-md-8 d-flex flex-wrap justify-content-around	">
-      <% users.each do |user| %>
-        <div>
-          <img class="rounded-circle" src="<%= gravatar_url(user, { size: 200 }) %>" alt="">
-          <div>
-          <p class="mt-2 text-center"><%= link_to  user.name , user_path(user) %></p>
-          </div>
+  <div class="d-flex flex-wrap bd-highlight mb-3 ">
+    <% users.each do |user| %>
+      <div class="card" style="width: 6rem;" >
+        <img src="<%= gravatar_url(user, { size: 60 }) %>" class="card-img-top" alt="">
+        <div　class="card-body">
+          <h5 class="card-title "> <%= user.name %> </h5>
+          <%= link_to 'more', user_path(user) ,class: 'btn btn-primary btn-block' %>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>      
   </div>
   <%= paginate users %>
 <% end %>
