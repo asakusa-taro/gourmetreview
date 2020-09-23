@@ -1,10 +1,10 @@
 <h1>店舗名：<%= @shop.name %></h1>
 <div class="row">
   <div class="col-sm-4">
-    <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+    <div class="card" >
+      <%= image_tag @shop_image.image.url ,height: '200px',width: '200px' if @shop_image.image? %>
     </div>
-    <p class="mt-3"><%= link_to '写真一覧', root_path ,class: 'btn btn-primary btn-block'%></p>
+    <p class="mt-3"><%= link_to '写真一覧', shop_images_path(@shop) ,class: 'btn btn-primary btn-block'%></p>
     <%= render 'favorites/fav_button', shop: @shop %>
 
   </div>

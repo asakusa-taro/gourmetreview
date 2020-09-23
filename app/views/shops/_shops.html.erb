@@ -2,7 +2,8 @@
   <div class="d-flex flex-wrap bd-highlight mb-3 ">
   <% shops.each do |shop| %>
     <div class="card" style="width: 15rem;">
-      <img src="..." class="card-img-top" alt="...">
+      <%= image_tag shop.shop_images.last.image.url ,height: '200px',width: '200px' if shop.shop_images.last.image?  %>
+      
       <div class="card-body">
         <h5 class="card-title"><%= shop.name %></h5>
         <%= link_to 'more', shop_path(shop) ,class: 'btn btn-primary btn-block'%>

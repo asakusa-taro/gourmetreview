@@ -11,6 +11,8 @@ class User < ApplicationRecord
   
   has_many :reviews
   has_many :comment, through: :reviews, source: :shop
+  
+  mount_uploader :image, ImageUploader
 
   def favorite(shop)
     self.favorites.find_or_create_by(shop_id: shop.id)

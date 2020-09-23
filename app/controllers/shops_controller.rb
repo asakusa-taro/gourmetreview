@@ -8,12 +8,14 @@ class ShopsController < ApplicationController
   
   def show
     @shop = Shop.find(params[:id])
+    @shop_image = @shop.shop_images.last
     @review = current_user.reviews.new
     @reviews = @shop.reviews.order(id: :desc).page(params[:page])
   end
 
   def create
     @shop = current_user.shops.build(shop_params)
+    @shop.shop_images.build(image: "NoImage.png")
     if @shop.save
       flash[:success] = 'お店を投稿をしました'
       redirect_to root_url

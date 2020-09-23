@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'shop_images/index'
+  get 'shop_images/create'
+  get 'shop_images/destroy'
   get 'reviews/create'
   get 'reviews/destroy'
   get 'favorites/create'
@@ -21,7 +24,11 @@ Rails.application.routes.draw do
   end
   
   resources :shops do
-    resources :reviews      
+    member do
+      resources :shop_images
+    end
+    resources :reviews
+
   end
   
   resources :favorites, only: [:create, :destroy]
