@@ -5,7 +5,7 @@
       <% if shop.shop_images.present?%>
         <%= image_tag shop.shop_images.last.image.url ,height: '200px',width: '200px'   %>
       <% else %>
-        <image src="/assets/NoImage.png" style = "height:200px; width:200px;" alt="" %>
+        <image src="/noimage.png" style = "height:200px; width:200px;" alt="" %>
       <% end %>
       <div class="card-body">
         <h5 class="card-title"><%= shop.name %></h5>
