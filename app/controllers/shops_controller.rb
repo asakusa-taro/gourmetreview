@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
   before_action :require_user_logged_in, only: [:show, :new, :create]
-  before_action :correct_user, only: [:destroy]
+  # before_action :correct_user, only: [:destroy]
 
   def new
     @shop = current_user.shops.build
@@ -16,15 +16,16 @@ class ShopsController < ApplicationController
 
   def create
     @shop = current_user.shops.build(shop_params)
-    @shop.shop_images.build(image: "NoImage.png")
+    # @image = @shop.shop_images.build
     if @shop.save
-      # @shop.shop_images.save
+      # @image.save
       flash[:success] = 'お店を投稿をしました'
       redirect_to root_url
     else
-      @shop = current_user.shops.build(shop_params)
+      # @shop = current_user.shops.build(shop_params)
       flash.now[:danger] = 'お店の投稿に失敗しました'
-      render 'toppages/index'
+      # render 'toppages/index'
+      redirect_to root_url, alert: "お店の投稿に失敗しました"
     end
   end
 

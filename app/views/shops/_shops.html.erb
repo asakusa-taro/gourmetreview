@@ -2,7 +2,7 @@
   <div class="d-flex flex-wrap bd-highlight mb-3 ">
   <% shops.each do |shop| %>
     <div class="card" style="">
-      <% if shop.shop_images.last.image? %>
+      <% if shop.shop_images.present?%>
         <%= image_tag shop.shop_images.last.image.url ,height: '200px',width: '200px'   %>
       <% else %>
         <image src="/assets/NoImage.png" style = "height:200px; width:200px;" alt="" %>

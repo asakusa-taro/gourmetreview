@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-sm-4">
     <div class="card" >
-    <%if @shop_image.image? %>
+    <%if @shop_image.present? %>
       <%= image_tag @shop_image.image.url ,height: '200px',width: '200px'  %>
       <% else %>
         <image src="/assets/NoImage.png" style = "height:200px; width:200px;" alt="" %>

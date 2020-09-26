@@ -4,15 +4,14 @@ Rails.application.routes.draw do
   get 'shop_images/destroy'
   get 'reviews/create'
   get 'reviews/destroy'
-  get 'favorites/create'
-  get 'favorites/destroy'
+
   get 'shops/new'
   get 'shops/show'
   get 'shops/create'
   get 'shops/destroy'
   root to: 'toppages#index'
 
-  get 'login', to: 'sessions#new'
+  # get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 

@@ -1,4 +1,5 @@
 class ShopImagesController < ApplicationController
+    before_action :require_user_logged_in
   def index
     @shop = Shop.find(params[:id])
     @image = @shop.shop_images.build
@@ -10,12 +11,12 @@ class ShopImagesController < ApplicationController
 
   def create
     @shop = Shop.find(params[:id])
-    @image = @shop.shop_images.new(shop_image_params)
+    @image = @shop.shop_images.build(shop_image_params)
     if @image.save
       flash[:success] = '写真を投稿しました'
-      redirect_to root_url
+     redirect_to root_url
     else
-      flash.now[:danger] = '写真の投稿に失敗しました'
+      redirect_to root_url, alert: "写真の投稿に失敗しました"
     end
   end
 
@@ -24,7 +25,7 @@ class ShopImagesController < ApplicationController
 
   private
   def shop_image_params
-    params.require(:shop_image).permit(:shop_id, :image)
+    params.require(:shop_image).permit(:image)
   end
 
 
