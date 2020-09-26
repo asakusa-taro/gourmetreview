@@ -1,9 +1,12 @@
 <ul class="list-unstyled">
   <div class="d-flex flex-wrap bd-highlight mb-3 ">
   <% shops.each do |shop| %>
-    <div class="card" style="width: 15rem;">
-      <%= image_tag shop.shop_images.last.image.url ,height: '200px',width: '200px' if shop.shop_images.last.image?  %>
-      
+    <div class="card" style="">
+      <% if shop.shop_images.last.image? %>
+        <%= image_tag shop.shop_images.last.image.url ,height: '200px',width: '200px'   %>
+      <% else %>
+        <image src="/assets/NoImage.png" style = "height:200px; width:200px;" alt="" %>
+      <% end %>
       <div class="card-body">
         <h5 class="card-title"><%= shop.name %></h5>
         <%= link_to 'more', shop_path(shop) ,class: 'btn btn-primary btn-block'%>

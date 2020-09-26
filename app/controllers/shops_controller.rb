@@ -4,6 +4,7 @@ class ShopsController < ApplicationController
 
   def new
     @shop = current_user.shops.build
+    # @image = @shop.shop_images.build
   end
   
   def show
@@ -17,6 +18,7 @@ class ShopsController < ApplicationController
     @shop = current_user.shops.build(shop_params)
     @shop.shop_images.build(image: "NoImage.png")
     if @shop.save
+      # @shop.shop_images.save
       flash[:success] = 'お店を投稿をしました'
       redirect_to root_url
     else
@@ -37,6 +39,11 @@ class ShopsController < ApplicationController
   def shop_params
     params.require(:shop).permit(:name, :content, :business_hours, :address, :hp)
   end
+  
+  def shop_image_params
+    params.require(:shop_image).permit(:shop_id, :image)
+  end
+
   
   def correct_user
     @shop = current_user.shop.find_by(id: params[:id])
