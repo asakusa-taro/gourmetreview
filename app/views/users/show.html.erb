@@ -2,7 +2,7 @@
     <div class="d-flex flex-wrap justify-content-around	">
       <div>
         <% if @user.image?%>
-          <%= image_tag @user.image.url ,height: '200',width: '200':alt => 'userの画像'%>
+          <%= image_tag @user.image.url ,height: '200',width: '200',:alt => 'userの画像'%>
         <% else %>
           <image src="/assets/NoImage.png" height="200" width="200" alt="noimage" >
         <% end %>

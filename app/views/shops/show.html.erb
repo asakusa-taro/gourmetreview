@@ -3,7 +3,7 @@
   <div class="col-sm-4">
     <div class="card" >
     <%if @shop_image.present? %>
-      <%= image_tag @shop_image.image.url ,height: '200',width: '200' :alt => 'shopの画像' %>
+      <%= image_tag @shop_image.image.url ,height: '200',width: '200' ,:alt => 'shopの画像' %>
       <% else %>
         <image src="/assets/NoImage.png" height="200" width="200" alt="noimage" %>
       <% end %>
@@ -39,7 +39,7 @@
     <% @reviews.each do |r| %>
       <li class="media mb-3">
       <% if r.user.image?%>
-        <%= image_tag r.user.image.url ,height: '70',width: '70' :alt => 'userの画像'%>
+        <%= image_tag r.user.image.url ,height: '70',width: '70' ,:alt => 'userの画像'%>
       <% else %>
         <image src="/assets/NoImage.png" height="70" width="70" alt="noimage" >
       <% end %>
