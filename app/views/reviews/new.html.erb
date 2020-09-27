@@ -3,6 +3,7 @@
 <h2>口コミを入力してください</h2>
   <div class = "col-sm-8">
     <%= form_with(model: [@shop,@review],method: :post, local: true) do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
       <div class="form-group">
         <%= f.label :review, '口コミ' %>
         <%= f.text_area :review, class: 'form-control', rows: 5 %>
@@ -10,5 +11,4 @@
       </div>
         <%= f.submit '口コミを投稿する', class: 'btn btn-primary btn-block' %>
     <% end %>
-    <%#= render 'reviews/reviews', reviews: @reviews %>
   </div>

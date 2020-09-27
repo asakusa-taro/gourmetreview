@@ -24,8 +24,9 @@ class ShopsController < ApplicationController
     else
       # @shop = current_user.shops.build(shop_params)
       flash.now[:danger] = 'お店の投稿に失敗しました'
+      render :new
       # render 'toppages/index'
-      redirect_to root_url, alert: "お店の投稿に失敗しました"
+      # redirect_to root_url, alert: "お店の投稿に失敗しました"
     end
   end
 

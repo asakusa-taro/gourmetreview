@@ -2,10 +2,9 @@
       <div class="d-flex flex-wrap justify-content-around	">
         <div>
           <% if @user.image?%>
-          <!--<img class="rounded-circle" src="<%#= gravatar_url(@user, { size: 200 }) %>" alt="">-->
             <%= image_tag @user.image.url ,height: '200px',width: '200px'%>
           <% else %>
-            <image src="/assets/NoImage.png" style = "height:200px; width:200px;" alt="" %>
+            <image src="/assets/NoImage.png" style = "height:200px; width:200px;" alt="noimage" %>
           <% end %>
           <div>
             <p class="mt-2 text-center"><%= @user.name %></p>

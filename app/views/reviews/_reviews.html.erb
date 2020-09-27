@@ -1,8 +1,12 @@
 <ul class="list-unstyled">
   <% reviews.each do |review| %>
     <li class="media mb-3">
-      <!--<img class="mr-2 rounded" src="<%#= gravatar_url(review.user, { size: 50 }) %>" alt="">-->
-      <%= image_tag @user.image.url ,height: '200px',width: '200px' if @user.image?%>
+    <% if @user.image? %>
+      <%= image_tag @user.image.url ,height: '200px',width: '200px'%>
+    <% else %>
+      <image src="/assets/NoImage.png" style = "height:200px; width:200px;" alt="noimage" %>
+    <% end %>
+
       <div class="media-body">
         <div>
           <%= link_to review.user.name, user_path(review.user) %> <span class="text-muted">posted at <%= review.created_at %></span>

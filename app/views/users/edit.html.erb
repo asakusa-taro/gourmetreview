@@ -2,10 +2,9 @@
   <div class="col-sm-4">
     <div>
       <%if @user.image?%>
-      <!--<img class="rounded-circle" src="<%#= gravatar_url(@user, { size: 200 }) %>" alt="">-->
       <%= image_tag @user.image.url ,height: '200px',width: '200px'%>
       <% else %>
-        <image src="/assets/NoImage.png" style = "height:200px; width:200px;" alt="" %>
+        <image src="/assets/NoImage.png" style = "height:200px; width:200px;" alt="noimage" %>
       <% end %>
       <div>
         <p class="mt-2 text-center"><%= @user.name %></p>
@@ -30,6 +29,10 @@
       <div class="form-group">
         <%= f.label :email, 'メールアドレス' %>
         <%= f.text_field :email ,class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :profile, 'Profile' %>
+        <%= f.text_area :profile, class: 'form-control', rows: 5 %>
       </div>
       <div class="form-group">
         <%= f.label :password, 'Password' %>

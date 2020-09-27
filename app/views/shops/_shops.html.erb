@@ -1,11 +1,11 @@
 <ul class="list-unstyled">
   <div class="d-flex flex-wrap bd-highlight mb-3 ">
   <% shops.each do |shop| %>
-    <div class="card" style="">
+    <div class="card">
       <% if shop.shop_images.present?%>
         <%= image_tag shop.shop_images.last.image.url ,height: '200px',width: '200px'   %>
       <% else %>
-        <image src="/assets/NoImage.png" style = "height:200px; width:200px;" alt="" %>
+        <image src="/assets/NoImage.png" style = "height:200px; width:200px;" alt="noimage" %>
       <% end %>
       <div class="card-body">
         <h5 class="card-title"><%= shop.name %></h5>

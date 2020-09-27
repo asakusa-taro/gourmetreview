@@ -15,11 +15,12 @@ class ReviewsController < ApplicationController
       flash[:success] = '口コミを投稿をしました'
        redirect_to root_url
     else
+      @shop = Shop.find(params[:shop_id])
       @review = current_user.reviews.build(review_params)
       flash.now[:danger] = '口コミの投稿に失敗しました'
-      redirect_to root_url,alert: "口コミの投稿に失敗しました"
+      # redirect_to root_url,alert: "口コミの投稿に失敗しました"
       # render 'toppages/index'
-      # render :new
+      render :new
     end
   end
 

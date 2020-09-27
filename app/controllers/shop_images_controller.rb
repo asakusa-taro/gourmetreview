@@ -17,11 +17,17 @@ class ShopImagesController < ApplicationController
       flash[:success] = '写真を投稿しました'
       redirect_to root_url
       else
-        redirect_to root_url, alert: "写真の投稿に失敗しました"
+        @images = @shop.shop_images.order(id: :desc).page(params[:page])
+        flash.now[:danger] = '写真の投稿に失敗しました'
+        # redirect_to root_url, alert: "写真の投稿に失敗しました"
+        render :index
     end
   end
 
   def destroy
+    # @image.destroy
+    # flash[:success] = 'メッセージを削除しました。'
+    # redirect_back(fallback_location: root_path)
   end
 
   private

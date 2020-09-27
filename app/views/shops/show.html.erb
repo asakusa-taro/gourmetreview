@@ -39,10 +39,9 @@
     <% @reviews.each do |r| %>
       <li class="media mb-3">
       <% if r.user.image?%>
-        <!--<img class="mr-2 rounded" src="<%#= gravatar_url(r.user, { size: 50 }) %>" alt="">-->
         <%= image_tag r.user.image.url ,height: '70px',width: '70px'%>
       <% else %>
-        <image src="/assets/NoImage.png" style = "height:70px; width:70px;" alt="" %>
+        <image src="/assets/NoImage.png" style = "height:70px; width:70px;" alt="noimage" %>
       <% end %>
         <div class="media-body border">
           <div>
