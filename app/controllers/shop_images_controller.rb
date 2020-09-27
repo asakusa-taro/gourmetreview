@@ -11,12 +11,13 @@ class ShopImagesController < ApplicationController
 
   def create
     @shop = Shop.find(params[:id])
-    @image = @shop.shop_images.build(shop_image_params)
-    if @image.save
+    unless params[:shop_image].blank?
+      @image = @shop.shop_images.build(shop_image_params)
+      @image.save
       flash[:success] = '写真を投稿しました'
-     redirect_to root_url
-    else
-      redirect_to root_url, alert: "写真の投稿に失敗しました"
+      redirect_to root_url
+      else
+        redirect_to root_url, alert: "写真の投稿に失敗しました"
     end
   end
 
