@@ -5,7 +5,7 @@
       <div class="card">
         <div class="card-image">
           <% if user.image? %>
-            <%= image_tag user.image.url ,height: '200',width: '200' if user.image?%>
+            <%= image_tag user.image.url ,height: '200',width: '200' :alt => 'userの画像'%>
           <% else %>
             <image src="/assets/NoImage.png" height="200" width="200" alt="noimage">
           <% end %>
