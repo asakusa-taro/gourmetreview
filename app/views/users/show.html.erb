@@ -1,20 +1,20 @@
-    <div class="container">
-      <div class="d-flex flex-wrap justify-content-around	">
+  <div class="container">
+    <div class="d-flex flex-wrap justify-content-around	">
+      <div>
+        <% if @user.image?%>
+          <%= image_tag @user.image.url ,height: '200',width: '200'%>
+        <% else %>
+          <image src="/assets/NoImage.png" height="200" width="200" alt="noimage" >
+        <% end %>
         <div>
-          <% if @user.image?%>
-            <%= image_tag @user.image.url ,height: '200px',width: '200px'%>
-          <% else %>
-            <image src="/assets/NoImage.png" style = "height:200px; width:200px;" alt="noimage" %>
-          <% end %>
-          <div>
-            <p class="mt-2 text-center"><%= @user.name %></p>
-          </div>
-          <div class="mt-3">
-            <% if @user.id == current_user.id %>
-            <p><%= link_to 'ユーザ情報の編集', edit_user_path(@user) ,class: 'btn btn-primary btn-block'%></p>
-            <% end %>
-          </div>
+          <p class="mt-2 text-center"><%= @user.name %></p>
         </div>
+        <div class="mt-3">
+          <% if @user.id == current_user.id %>
+          <p><%= link_to 'ユーザ情報の編集', edit_user_path(@user) ,class: 'btn btn-primary btn-block'%></p>
+          <% end %>
+        </div>
+      </div>
       <div class="card" style="width: 40rem;">
         <div class="card-body">
           <h5 class="card-title">Profile</h5>
@@ -22,6 +22,7 @@
         </div>
       </div>
     </div>
+  </div>
     <h2 class="mt-4">お気に入りのお店</h2>
  
   <%= render 'shops/shops', shops: @fav_shops %>

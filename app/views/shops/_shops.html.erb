@@ -1,11 +1,11 @@
-<ul class="list-unstyled">
+
   <div class="d-flex flex-wrap bd-highlight mb-3 ">
   <% shops.each do |shop| %>
     <div class="card">
       <% if shop.shop_images.present?%>
-        <%= image_tag shop.shop_images.last.image.url ,height: '200px',width: '200px'   %>
+        <%= image_tag shop.shop_images.last.image.url ,height: '200',width: '200'   %>
       <% else %>
-        <image src="/assets/NoImage.png" style = "height:200px; width:200px;" alt="noimage" %>
+            <image src="/assets/NoImage.png" height="200" width="200" alt="noimage">
       <% end %>
       <div class="card-body">
         <h5 class="card-title"><%= shop.name %></h5>
@@ -15,4 +15,3 @@
   <% end %>
   </div>
   <%= paginate shops %>
-</ul>

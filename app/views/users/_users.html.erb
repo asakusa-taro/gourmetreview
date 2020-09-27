@@ -5,9 +5,9 @@
       <div class="card">
         <div class="card-image">
           <% if user.image? %>
-            <%= image_tag user.image.url ,height: '200px',width: '200px' if user.image?%>
+            <%= image_tag user.image.url ,height: '200',width: '200' if user.image?%>
           <% else %>
-            <image src="/assets/NoImage.png" style = "height:200px; width:200px;" alt="noimage" %>
+            <image src="/assets/NoImage.png" height="200" width="200" alt="noimage">
           <% end %>
             <h5 class="card-title "> <%= user.name %> </h5>
             <%= link_to 'more', user_path(user) ,class: 'btn btn-primary btn-block' %>

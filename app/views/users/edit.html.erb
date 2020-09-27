@@ -2,9 +2,9 @@
   <div class="col-sm-4">
     <div>
       <%if @user.image?%>
-      <%= image_tag @user.image.url ,height: '200px',width: '200px'%>
+      <%= image_tag @user.image.url ,height: '200',width: '200'%>
       <% else %>
-        <image src="/assets/NoImage.png" style = "height:200px; width:200px;" alt="noimage" %>
+        <image src="/assets/NoImage.png" height="200" width="200" alt="noimage" %>
       <% end %>
       <div>
         <p class="mt-2 text-center"><%= @user.name %></p>
@@ -31,16 +31,16 @@
         <%= f.text_field :email ,class: 'form-control' %>
       </div>
       <div class="form-group">
-        <%= f.label :profile, 'Profile' %>
+        <%= f.label :profile, 'プロフィール' %>
         <%= f.text_area :profile, class: 'form-control', rows: 5 %>
       </div>
       <div class="form-group">
-        <%= f.label :password, 'Password' %>
+        <%= f.label :password, 'パスワード' %>
         <%= f.password_field :password, class: 'form-control' %>
       </div>
 
       <div class="form-group">
-        <%= f.label :password_confirmation, 'Confirmation' %>
+        <%= f.label :password_confirmation, 'パスワード確認' %>
         <%= f.password_field :password_confirmation, class: 'form-control' %>
       </div>
       
